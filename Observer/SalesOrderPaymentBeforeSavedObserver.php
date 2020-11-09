@@ -64,6 +64,7 @@ class SalesOrderPaymentBeforeSavedObserver implements \Magento\Framework\Event\O
             return $this;
         }
 
+        // This is used while creating an order from the backend by an administrator.
         if ($this->requestInterface->getFullActionName() == 'sales_order_create_save') {
             $paymentFromPosting = $this->requestInterface->getParam('payment');
             if ($paymentFromPosting && isset($paymentFromPosting['assistant_id'])) {
@@ -72,6 +73,7 @@ class SalesOrderPaymentBeforeSavedObserver implements \Magento\Framework\Event\O
             return $this;
         }
 
+        // This is used while creating an order from the frontend by a customer.
         $inputParams = $this->inputParamsResolver->resolve();
 
         foreach ($inputParams as $inputParam) {

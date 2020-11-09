@@ -1,0 +1,34 @@
+<?php
+/**
+ * GiaPhuGroup Co., Ltd.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GiaPhuGroup.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.giaphugroup.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    PHPCuong
+ * @package     PHPCuong_OfflinePayments
+ * @copyright   Copyright (c) 2020-2021 GiaPhuGroup Co., Ltd. All rights reserved. (http://www.giaphugroup.com/)
+ * @license     https://www.giaphugroup.com/LICENSE.txt
+ */
+/**
+ * @var $block \PHPCuong\OfflinePayments\Block\Form\PdqPayment
+ */
+?>
+<fieldset class="admin__fieldset payment-method" id="payment_form_<?= $block->escapeHtml($block->getMethodCode()) ?>" style="display: none">
+    <div class="admin__field _required">
+        <label for="assistant_id" class="admin__field-label"><span><?= $block->escapeHtml(__('Assistant ID')) ?></span></label>
+        <div class="admin__field-control">
+            <input type="text" id="assistant_id" name="payment[assistant_id]"
+                   title="<?= $block->escapeHtml(__("Assistant ID")) ?>" class="required-entry admin__control-text"
+                   value="<?= /* @noEscape */ $block->getInfoData('assistant_id') ?>"/>
+        </div>
+    </div>
+</fieldset>
